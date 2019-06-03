@@ -88,7 +88,7 @@ function createElem(nr) { //funktsioon elementide tekitamiseks
 
 function importSVG(arr){
   for (let i = 1; i < arr.length; i++) {
-      fabric.loadSVGFromURL('../puit/svg/' + arr[i], function(objects, options) { 
+      fabric.loadSVGFromURL('svg/' + arr[i], function(objects, options) { 
         let obj = fabric.util.groupSVGElements(objects, options);
         tree.obj = arr[0];
         canvas.add(obj); 
