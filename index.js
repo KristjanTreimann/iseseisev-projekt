@@ -3,7 +3,7 @@ let canvas, rect, text, circle;
 let canvasImage = 'loikelaud_uus400x644.jpg';
 
 window.onload = function(){
-  canvas = new fabric.Canvas('c');
+  canvas = new fabric.Canvas('c');//Canvas serves as a wrapper around <canvas> element, and is responsible for managing all of the fabric objects on that particular canvas. It takes an id of an element, and returns an instance of fabric.Canvas.
   //canvas.setBackgroundImage('loikelaud_uus400x644.jpg', canvas.renderAll.bind(canvas));
   canvas.setBackgroundColor({source: canvasImage}, function () {
     canvas.renderAll();
@@ -47,7 +47,7 @@ function createElem(nr) { //funktsioon elementide tekitamiseks
       fillC = 'transparent';
     }
     val = $('#stroke').val();
-    rect = new fabric.Rect({
+    rect = new fabric.Rect({ //With Fabric, we no longer need to erase the content before attempting to “modify” any content. We still work with objects, simply changing their properties, and then re-render canvas to get a “fresh picture”.
       left: 40,
       top: 40,
       width: 50,
@@ -65,14 +65,14 @@ function createElem(nr) { //funktsioon elementide tekitamiseks
       fillC = 'transparent';
     }
     val = $('#stroke').val();
-    circle = new fabric.Circle({
-      left: 20,
-      top: 20,
+    circle = new fabric.Circle({// All of them are exposed under fabric “namespace” as fabric.Circle
+      left: 20, //Well, as you would expect there are those related to positioning — left, top;  stroke,  scaling and rotation — scaleX, scaleY, angle; and even those related to flipping — flipX, flipY and skewing skewX, skewY
+      top: 20,// rendering — fill, opacity,
       radius: 20,  
       name: "circ",   
       fill: fillC,
       stroke: 'black',
-      strokeWidth: val,
+      strokeWidth: val,//strokeWidth;
     });  
     canvas.add(circle);
   } else if(nr == 3){
